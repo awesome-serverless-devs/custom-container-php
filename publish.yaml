@@ -1,0 +1,29 @@
+Type: Application
+Name: custom-container-wordpress
+Version: 0.0.4
+Provider:
+  - Alibaba
+Description:
+  zh: 快速部署一个 wordpress 的 custom-container 类型的函数到阿里云函数计算。
+  en: Quickly deploy a wordpress event type function to Alibaba Cloud function calculation.
+HomePage: https://serverless.aliyun.com/
+Tags:
+  - zh: 函数计算
+    en: Function calculation
+  - zh: 你好世界
+    en: Hello world
+  - zh: 新手入门
+    en: Getting started
+Category: 新手入门
+Service:
+  函数计算:
+    Authorities:
+      - zh: 创建函数
+        en: Create function
+      - zh: 删除函数
+        en: Delete function
+      - zh: 创建服务
+        en: Create service
+      - zh: 删除服务
+        en: Delete service
+    Runtime: Other
