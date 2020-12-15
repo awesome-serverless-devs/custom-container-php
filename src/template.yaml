@@ -1,0 +1,55 @@
+MyFunctionDemo:
+  Component: fc
+  Provider: alibaba
+  Properties:
+    Region: cn-qingdao
+    Service:
+      Name: test-custom-container
+      Description: custom-container 示例
+      # Nas: Auto
+      Nas:
+        Type: Auto
+        FcDir: /mnt/auto
+        LocalDir: ./conf
+        UserId: 33
+        GroupId: 33
+      Log:
+        LogStore: function-log
+        Project: fc-txd-test
+    Function:
+      Name: wordpress-func
+      Description: 这是一个 wordpress 使用案例
+      CodeUri:
+        Src: ./
+        Excludes:
+          - .fun
+          - template.yaml
+          - .s
+      CAPort: 8080
+      InstanceConcurrency: 15
+      Handler: index.handler
+      CustomContainer:
+        Dockerfile: ./Dockerfile
+        Image: 'registry.cn-qingdao.aliyuncs.com/fc-demo/fc-wordpress-custom-container:v1'
+      MemorySize: 1536
+      Runtime: custom-container
+      Timeout: 60
+      Environment:
+        - Key: MY_FC_DIR
+          Value: /mnt/auto
+      Triggers:
+        - Name: http-trigger-test
+          Type: HTTP
+          Parameters:
+            AuthType: ANONYMOUS
+            Methods:
+              - GET
+              - POST
+              - PUT
+            Domains:
+              # - Domain: Auto
+              - Domain: 37917579-1986114430573743.test.functioncompute.com
+                Protocol:
+                  - HTTP
+                Routes:
+                  - Path: '/*'
