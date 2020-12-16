@@ -13,9 +13,7 @@ MyFunctionDemo:
         LocalDir: ./conf
         UserId: 33
         GroupId: 33
-      Log:
-        LogStore: function-log
-        Project: fc-txd-test
+      Log: Auto
     Function:
       Name: wordpress-func
       Description: 这是一个 wordpress 使用案例
@@ -30,7 +28,7 @@ MyFunctionDemo:
       Handler: index.handler
       CustomContainer:
         Dockerfile: ./Dockerfile
-        Image: 'registry.cn-qingdao.aliyuncs.com/fc-demo/fc-wordpress-custom-container:v1'
+        Image: 'registry-vpc.cn-qingdao.aliyuncs.com/fc-demo/fc-wordpress-custom-container:v1'
       MemorySize: 1536
       Runtime: custom-container
       Timeout: 60
@@ -47,9 +45,9 @@ MyFunctionDemo:
               - POST
               - PUT
             Domains:
-              # - Domain: Auto
-              - Domain: 37917579-1986114430573743.test.functioncompute.com
-                Protocol:
-                  - HTTP
-                Routes:
-                  - Path: '/*'
+              - Domain: Auto
+              # - Domain: ${your_custom_domain}
+              #   Protocol:
+              #     - HTTP
+              #   Routes:
+              #     - Path: '/*'

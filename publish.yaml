@@ -1,6 +1,6 @@
 Type: Application
 Name: custom-container-wordpress
-Version: 0.0.4
+Version: 0.0.8
 Provider:
   - Alibaba
 Description:
