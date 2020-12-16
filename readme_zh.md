@@ -4,7 +4,7 @@
 
 - 初始化项目：`s init custom-container-wordpress -p alibaba`
 - 进入项目：`cd custom-container-wordpress`
-- 部署项目：`make deploy`
-- 同步 NAS：`make sync-nas`
+- 部署项目：`s deploy`
+- 同步 NAS：`s nas sync ./conf`
 
 即可实现`wordpress`案例的初始化、部署整个流程。
